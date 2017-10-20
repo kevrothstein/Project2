@@ -41,8 +41,8 @@ def find_urls(s):
 ## http://www.michigandaily.com/section/opinion
 
 def grab_headlines():
-    RQ = open('opinion.html')
-    B_soup = BeautifulSoup(RQ, 'html.parser')
+    RQ = requests.get('https://www.michigandaily.com/section/opinion')
+    B_soup = BeautifulSoup(RQ.text, 'html.parser')
     lst = []
     B_soup_read = B_soup('ol')[0]
     for words in B_soup_read.contents:
